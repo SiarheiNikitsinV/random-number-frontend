@@ -3,7 +3,7 @@ import React from 'react';
 import './Counter.sass';
 
 
-const Counter = ({ counter, onAdd, onSub, onAddRandomPositiveNumber, onAddNegativeRandomNumber }) => {  
+const Counter = ({ counter, onAdd, onSub, onAddRandomPositiveNumber, onAddRandomNegativeNumber }) => {  
 
   return (
     <div className="container counterWrapper text-center">
@@ -14,7 +14,7 @@ const Counter = ({ counter, onAdd, onSub, onAddRandomPositiveNumber, onAddNegati
         <button onClick={onSub}>Sub 1</button>     
             
         <button onClick={onAddRandomPositiveNumber}>Add random positive number</button>    
-        <button onClick={onAddNegativeRandomNumber}>Add random negative number</button>   
+        <button onClick={onAddRandomNegativeNumber}>Add random negative number</button>   
       </div>      
     </div>
   );

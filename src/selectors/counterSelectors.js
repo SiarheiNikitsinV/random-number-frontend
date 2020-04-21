@@ -8,11 +8,3 @@ export const getCounter = (state) => {
 export const getCounterSuperSelector = createSelector(getCounter, (counter) => {
   return counter;
 });
-
-export const getRandomNumber = (state) => {
-  return state.randomNumber;
-}
-
-export const getRandomNumberSuperSelector = createSelector(getRandomNumber, (randomNumber) => {
-  return randomNumber;
-})
