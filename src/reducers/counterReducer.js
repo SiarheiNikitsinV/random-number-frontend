@@ -1,4 +1,4 @@
-import { assoc, compose } from 'lodash/fp';
+import { assoc } from 'lodash/fp';
 
 import * as constants from '../utils/constants/counterConstants';
 
@@ -10,9 +10,7 @@ const initialState = {
 const counterReducer = (state = initialState, { type, payload }) => {
   switch (type) {    
     case constants.ADD:      
-      return compose(
-        assoc(['counter'], state.counter + payload)
-      )(state);
+      return assoc(['counter'], state.counter + payload, state);
     default:
       return state
   }

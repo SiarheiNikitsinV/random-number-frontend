@@ -9,15 +9,15 @@ const fetchNumber = () => axios({
   responseType: ''
 });
 
-function* addRandomAsyncNumber(action) {
+function* addRandomAsyncNumber({ payload: isNegative }) {
   try {
     const data = yield call(fetchNumber);
-    if (action.payload === 'isPositive') {
-      console.log('Add random positive number', data.data.number);
-      yield put({ type: 'ADD', payload: data.data.number });
-    } else if(action.payload === 'isNegative') {
+    if (isNegative === true) {
       console.log('Add random negative number', -(data.data.number));
       yield put({ type: 'ADD', payload: -(data.data.number) });
+    } else {
+      console.log('Add random positive number', data.data.number);
+      yield put({ type: 'ADD', payload: data.data.number });
     }      
   } catch(e) {
     console.log(e);
@@ -26,6 +26,6 @@ function* addRandomAsyncNumber(action) {
 
 export default function* rootSaga() {
   yield all([        
-    yield takeEvery('ADD_RANDOM_ASYNC_NUMBER', addRandomAsyncNumber)
+    yield takeEvery('ADD_RANDOM_ASYNC_NUMBER/TRIGGER', addRandomAsyncNumber)
   ])
 }

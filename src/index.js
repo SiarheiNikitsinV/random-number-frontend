@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './containers/App/App';
-import * as serviceWorker from './serviceWorker';
 import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
+
+import './index.css';
+
+import Counter from './containers/Counter';
+
+import * as serviceWorker from './serviceWorker';
+
 import counterReducer from './reducers/counterReducer';
+
 import counterSaga from './sagas/counterSaga';
 
 
@@ -22,7 +27,7 @@ sagaMiddleware.run(counterSaga);
 
 const app = (
   <Provider store={store}>
-    <App />
+    <Counter />
   </Provider>
 );
 
