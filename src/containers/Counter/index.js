@@ -4,19 +4,22 @@ import { add, addRandomAsyncNumber } from '../../actions/counterActions';
 
 import CounterComponent from '../../components/Counter/Counter';
 
-import { getCounter, getIsLoading } from '../../selectors/counterSelectors';
+import { getCounter, getIsLoading, getMinNumber, getMaxNumber, getLastNumber } from '../../selectors/counterSelectors';
 
 
 function mapStateToProps(state) {
   return {
     counter: getCounter(state),
-    isLoading: getIsLoading(state)
+    isLoading: getIsLoading(state),
+    minNumber: getMinNumber(state),
+    maxNumber: getMaxNumber(state),
+    lastNumber: getLastNumber(state)
   }
 }
 
 const mapDispatchToProps = {
   add,
-  addRandomAsyncNumber
+  addRandomAsyncNumber  
 }
 
 
